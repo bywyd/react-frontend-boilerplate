@@ -6,8 +6,11 @@ import {
 } from "lucide-react"
 import { StatCard } from "@/components/dashboard/stat-card"
 import { useAuthStore } from "@/stores/auth.store"
+import { useHead } from "@/hooks/use-head"
 
 export default function DashboardPage() {
+  useHead({ title: "Dashboard" })
+
   const user = useAuthStore((s) => s.user)
 
   return (

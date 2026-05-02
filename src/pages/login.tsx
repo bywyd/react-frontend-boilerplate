@@ -11,8 +11,11 @@ import { Spinner } from "@/components/ui/spinner"
 import { useAuthStore } from "@/stores/auth.store"
 import AppLogoIcon from "@/components/app-logo-icon"
 import { siteConfig } from "@/config/site"
+import { useHead } from "@/hooks/use-head"
 
 export default function LoginPage() {
+  useHead({ title: "Login" })
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const setAuth = useAuthStore((s) => s.setAuth)

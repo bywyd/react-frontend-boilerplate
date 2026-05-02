@@ -13,8 +13,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { useAuthStore } from "@/stores/auth.store"
+import { useHead } from "@/hooks/use-head"
 
 export default function ProfilePage() {
+  useHead({ title: "Profile" })
+
   const user = useAuthStore((s) => s.user)
 
   const [currentPassword, setCurrentPassword] = useState("")
