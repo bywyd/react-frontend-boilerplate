@@ -2,18 +2,15 @@ import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
-import { SquareTerminalIcon } from "lucide-react"
 
 import { loginApi } from "@/api/auth"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Spinner } from "@/components/ui/spinner"
 import { useAuthStore } from "@/stores/auth.store"
-
-const APP_NAME = import.meta.env.VITE_APP_NAME ?? "My App"
-const APP_VERSION = import.meta.env.VITE_APP_VERSION ?? "1.0.0"
+import AppLogoIcon from "@/components/app-logo-icon"
+import { siteConfig } from "@/config/site"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -39,28 +36,28 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/30 p-4">
-      <div className="w-full max-w-sm space-y-6">
-        {/* Brand */}
-        <div className="flex flex-col items-center gap-2 text-center">
-          <div className="flex size-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-            <SquareTerminalIcon className="size-6" />
-          </div>
-          <div>
-            <h1 className="text-xl font-bold">{APP_NAME}</h1>
-            <p className="text-xs text-muted-foreground">v{APP_VERSION}</p>
-          </div>
+    <div className="grid min-h-svh lg:grid-cols-2">
+      <div className="relative hidden lg:flex flex-col justify-between bg-primary p-10 text-primary-foreground">
+        <div className="flex items-center gap-2 text-lg font-semibold">
+            <AppLogoIcon className="size-8" />
+          {siteConfig.name}
         </div>
+      </div>
 
-        {/* Login Card */}
-        <Card>
-          <CardHeader className="pb-2">
-            <p className="text-center text-base font-semibold">Sign in</p>
-            <p className="text-center text-sm text-muted-foreground">
-              Enter your credentials to continue
+      <div className="flex items-center justify-center p-6 md:p-10">
+        <div className="w-full max-w-sm space-y-6">
+          <div className="flex flex-col items-center gap-2 text-center lg:items-start lg:text-left">
+            <div className="flex items-center gap-2 lg:hidden">
+              <div className="flex size-7 items-center justify-center rounded-sm bg-primary text-primary-foreground text-xs font-bold">
+                <AppLogoIcon className="size-4" />
+              </div>
+              <span className="text-lg font-semibold">{siteConfig.name}</span>
+            </div>
+            <h1 className="text-2xl font-bold tracking-tight">Welcome back</h1>
+            <p className="text-sm text-muted-foreground text-balance">
+              Sign in to your account to continue
             </p>
-          </CardHeader>
-          <CardContent>
+          </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1.5">
                 <Label htmlFor="email">Email</Label>
@@ -75,7 +72,6 @@ export default function LoginPage() {
                   disabled={isPending}
                 />
               </div>
-
               <div className="space-y-1.5">
                 <Label htmlFor="password">Password</Label>
                 <Input
@@ -89,18 +85,12 @@ export default function LoginPage() {
                   disabled={isPending}
                 />
               </div>
-
               <Button type="submit" className="w-full" disabled={isPending}>
                 {isPending && <Spinner className="mr-1" />}
                 Sign in
               </Button>
             </form>
-          </CardContent>
-        </Card>
-
-        <p className="text-center text-xs text-muted-foreground">
-          Don&apos;t have an account? Contact your administrator.
-        </p>
+        </div>
       </div>
     </div>
   )
