@@ -43,7 +43,7 @@ export default function ProfilePage() {
         month: "long",
         day: "numeric",
       })
-    : "—"
+    : "-"
 
   return (
     <div className="space-y-6">

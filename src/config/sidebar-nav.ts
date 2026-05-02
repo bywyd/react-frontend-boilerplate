@@ -4,6 +4,8 @@ import {
   Users,
   FileText,
   Settings2,
+  AppWindowMac,
+  PanelsTopLeft,
   type LucideIcon,
 } from "lucide-react";
 
@@ -56,6 +58,13 @@ export const sidebarNav: SidebarNavGroup[] = [
     items: [
       { title: "Settings", url: "/settings", icon: Settings2 as LucideIcon },
       { title: "Profile", url: "/profile", icon: Users as LucideIcon },
+    ],
+  },
+  {
+    label: "Components",
+    items: [
+      { title: "MDI Demo", url: "/mdi-demo", icon: AppWindowMac as LucideIcon },
+      { title: "Workspace Demo", url: "/workspace-demo", icon: PanelsTopLeft as LucideIcon },
     ],
   },
 ];

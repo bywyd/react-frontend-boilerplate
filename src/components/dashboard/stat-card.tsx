@@ -45,7 +45,7 @@ export function StatCard({
           </>
         ) : (
           <>
-            <p className="text-2xl font-semibold">—</p>
+            <p className="text-2xl font-semibold">-</p>
             <p className="text-sm text-amber-500 dark:text-amber-400">No data yet</p>
           </>
         )}

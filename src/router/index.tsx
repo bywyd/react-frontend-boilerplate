@@ -7,6 +7,8 @@ import { Spinner } from "@/components/ui/spinner"
 const LoginPage = lazy(() => import("@/pages/login"))
 const DashboardPage = lazy(() => import("@/pages/dashboard"))
 const ProfilePage = lazy(() => import("@/pages/profile"))
+const MdiDemoPage = lazy(() => import("@/pages/mdi-demo"))
+const WorkspaceDemoPage = lazy(() => import("@/pages/workspace-demo"))
 
 function PageLoader() {
   return (
@@ -47,6 +49,14 @@ export const router = createBrowserRouter([
           {
             path: "/profile",
             element: withSuspense(<ProfilePage />),
+          },
+          {
+            path: "/mdi-demo",
+            element: withSuspense(<MdiDemoPage />),
+          },
+          {
+            path: "/workspace-demo",
+            element: withSuspense(<WorkspaceDemoPage />),
           },
         ],
       },
