@@ -1,6 +1,9 @@
 import {
-  Settings,
+  LayoutDashboard,
+  BarChart2,
+  Users,
   FileText,
+  Settings2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,38 +22,40 @@ export interface SidebarNavGroup {
 
 export const sidebarNav: SidebarNavGroup[] = [
   {
-    label: "Settings",
+    label: "Overview",
+    items: [
+      { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard as LucideIcon },
+      { title: "Analytics", url: "/analytics", icon: BarChart2 as LucideIcon },
+    ],
+  },
+  {
+    label: "Manage",
     items: [
       {
-        title: "Master Definitions",
-        url: "/intranet/masterdefinitions",
-        icon: FileText as LucideIcon,
+        title: "Users",
+        url: "/users",
+        icon: Users as LucideIcon,
         items: [
-          { title: "Currencies", url: "/intranet/masterdefinitions/currencies" },
-          { title: "Destinations", url: "/intranet/masterdefinitions/destinations" },
-          { title: "Sale Channels", url: "/intranet/masterdefinitions/salechannels" },
-          { title: "Banks", url: "/intranet/masterdefinitions/banks" },
-          { title: "Companies", url: "/intranet/masterdefinitions/companies" },
-          { title: "Suppliers", url: "/intranet/masterdefinitions/suppliers" },
-          { title: "Airports", url: "/intranet/masterdefinitions/airports" },
-          { title: "Vehicles", url: "/intranet/masterdefinitions/vehicles" },
-          { title: "Vehicle Drivers", url: "/intranet/masterdefinitions/vehicle-drivers" },
-          { title: "Local Guides", url: "/intranet/masterdefinitions/local-guides" },
-          { title: "Docks", url: "/intranet/masterdefinitions/docks" },
-
+          { title: "All Users", url: "/users" },
+          { title: "Roles & Permissions", url: "/users/roles" },
         ],
       },
       {
-        title: "System Settings",
-        url: "/intranet/systemhandle",
-        icon: Settings as LucideIcon,
+        title: "Content",
+        url: "/content",
+        icon: FileText as LucideIcon,
         items: [
-          { title: "Currency Exchange", url: "/intranet/systemhandle/currencyexchange" },
-          { title: "Offices", url: "/intranet/systemhandle/offices" },
-          { title: "Announcements", url: "/intranet/systemhandle/announcements" },
-          { title: "Queues", url: "/intranet/systemhandle/queues" },
+          { title: "Posts", url: "/content/posts" },
+          { title: "Media", url: "/content/media" },
         ],
       },
+    ],
+  },
+  {
+    label: "System",
+    items: [
+      { title: "Settings", url: "/settings", icon: Settings2 as LucideIcon },
+      { title: "Profile", url: "/profile", icon: Users as LucideIcon },
     ],
   },
 ];
