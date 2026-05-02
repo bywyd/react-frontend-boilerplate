@@ -35,29 +35,31 @@ export function WorkspaceLayout({
   }
 
   return (
-    <div className={cn("flex flex-1 overflow-hidden rounded-lg border bg-background", className)}>
-      <ResizablePanelGroup orientation="horizontal" className="h-full">
-        {/* Left nav panel */}
-        <ResizablePanel defaultSize={22} minSize={14} maxSize={40} className="flex flex-col overflow-hidden border-r bg-background">
-          {header && (
-            <div className="shrink-0 overflow-y-auto border-b">
-              {header}
-            </div>
-          )}
-          <div className="flex-1 overflow-y-auto">
-            <WorkspaceNav
-              groups={groups}
-              openIds={openIds}
-              activeId={activeId}
-              onOpen={handleOpen}
-            />
+    <div className={cn("flex flex-1 overflow-hidden rounded-lg bg-background", className)}>
+      
+      <div className="flex flex-col overflow-hidden max-w-62 min-w-62 m-2">
+        {header && (
+          <div className="shrink-0 overflow-y-auto border-b">
+            {header}
           </div>
-        </ResizablePanel>
+        )}
+        <div className="flex-1 overflow-y-auto p-1">
+          <WorkspaceNav
+            groups={groups}
+            openIds={openIds}
+            activeId={activeId}
+            onOpen={handleOpen}
+          />
+        </div>
+      </div>
 
-        <ResizableHandle withHandle />
+      <ResizablePanelGroup orientation="horizontal" className="h-full border rounded-md">
+        {/* Left nav panel */}
+
+        {/* <ResizableHandle withHandle /> */}
 
         {/* Right content panel */}
-        <ResizablePanel defaultSize={78} className="flex flex-col">
+        <ResizablePanel defaultSize={40} className="flex flex-col">
           <WorkspaceTabs
             groups={groups}
             openIds={openIds}

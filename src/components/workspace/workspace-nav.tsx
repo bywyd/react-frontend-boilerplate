@@ -12,7 +12,7 @@ export function WorkspaceNav({ groups, openIds, activeId, onOpen }: WorkspaceNav
   return (
     <nav className="flex flex-col pb-4">
       {groups.map((group, gi) => (
-        <div key={gi}>
+        <div key={gi} className="space-y-1">
           {group.label && (
             <p className="px-3 pt-4 pb-1 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/60 select-none">
               {group.label}
@@ -27,8 +27,8 @@ export function WorkspaceNav({ groups, openIds, activeId, onOpen }: WorkspaceNav
                 key={item.id}
                 onClick={() => onOpen(item.id)}
                 className={cn(
-                  "group flex w-full items-center gap-2 px-3 py-[7px] text-sm text-left transition-colors",
-                  "hover:bg-accent hover:text-accent-foreground",
+                  "group flex w-full items-center gap-2 px-3 py-1.75 text-xs text-left transition-colors",
+                  "hover:bg-accent hover:text-accent-foreground rounded-sm",
                   isActive
                     ? "bg-accent text-accent-foreground font-medium"
                     : "text-foreground/75"

@@ -27,14 +27,14 @@ export function WorkspaceTabs({ groups, openIds, activeId, onActivate, onClose }
   return (
     <div className="flex flex-1 flex-col min-h-0">
       {/* Top bar: panels open counter + layout icon */}
-      <div className="flex items-center justify-between px-4 pt-2.5 shrink-0">
+      {/* <div className="flex items-center justify-between px-4 pt-2.5 shrink-0">
         <span className="text-xs text-muted-foreground">
           {openItems.length} {openItems.length === 1 ? "panel" : "panels"} open
         </span>
         <button className="flex items-center justify-center size-6 rounded hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
           <LayoutGrid className="size-3.5" />
         </button>
-      </div>
+      </div> */}
 
       {/* Tab strip */}
       <div className="flex items-end border-b px-3 shrink-0 overflow-x-auto mt-1">
@@ -59,10 +59,10 @@ export function WorkspaceTabs({ groups, openIds, activeId, onActivate, onClose }
                   e.stopPropagation()
                   onClose(item.id)
                 }}
-                className="ml-1 flex size-4 items-center justify-center rounded opacity-0 group-hover:opacity-100 hover:bg-muted text-muted-foreground hover:text-foreground transition-opacity"
+                className="ml-1 flex size-5 items-center justify-center rounded opacity-0 group-hover:opacity-100 hover:bg-destructive text-muted-foreground hover:text-white transition-opacity"
                 title="Close"
               >
-                <X className="size-2.5" />
+                <X className="size-3" />
               </span>
               {isActive && (
                 <span className="absolute bottom-0 inset-x-0 h-[2px] bg-primary rounded-t-sm" />
