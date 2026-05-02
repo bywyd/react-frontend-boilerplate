@@ -79,6 +79,7 @@ export const useMdiStore = create<MdiStore>((set, get) => ({
           id,
           title: config.title,
           component: config.component,
+          componentKey: config.componentKey,
           props: config.props ?? {},
           position: config.position ?? { x: 80 + offset, y: 80 + offset },
           size: config.size ?? { width: 480, height: 340 },
