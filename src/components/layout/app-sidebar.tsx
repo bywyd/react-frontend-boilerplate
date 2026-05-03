@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ChevronRight, LogOut, ChevronsUpDown } from "lucide-react";
+import { ChevronRight, LogOut, ChevronsUpDown, User2 } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,7 +36,6 @@ function CollapsibleNavItem({ item, pathname }: { item: SidebarNavItem; pathname
     <Collapsible defaultOpen={pathname.startsWith(item.url)} className="group/collapsible">
       <SidebarMenuItem>
         <CollapsibleTrigger
-          // This tells Base UI: "Don't create a button, use this SidebarMenuButton as the trigger"
           render={
             <SidebarMenuButton tooltip={item.title}>
               {item.icon && <item.icon className="size-4" />}
@@ -172,6 +171,13 @@ export function AppSidebar() {
                     </div>
                   </DropdownMenuLabel>
                 </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                  <Link to="/profile">
+                    <DropdownMenuItem onClick={() => clearAuth()}>
+                      <User2 className="mr-2 size-4" />
+                      Profile
+                    </DropdownMenuItem>
+                  </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => clearAuth()} className="text-destructive focus:text-destructive">
                   <LogOut className="mr-2 size-4" />
