@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
+import { useTranslation } from "react-i18next"
 
 import { loginApi } from "@/api/auth"
 import { Button } from "@/components/ui/button"
@@ -14,7 +15,8 @@ import { siteConfig } from "@/config/site"
 import { useHead } from "@/hooks/use-head"
 
 export default function LoginPage() {
-  useHead({ title: "Login" })
+  const { t } = useTranslation()
+  useHead({ title: t("login.welcomeBack") })
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -56,18 +58,18 @@ export default function LoginPage() {
               </div>
               <span className="text-lg font-semibold">{siteConfig.name}</span>
             </div>
-            <h1 className="text-2xl font-bold tracking-tight">Welcome back</h1>
+            <h1 className="text-2xl font-bold tracking-tight">{t("login.welcomeBack")}</h1>
             <p className="text-sm text-muted-foreground text-balance">
-              Sign in to your account to continue
+              {t("login.subtitle")}
             </p>
           </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1.5">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t("common.email")}</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder={t("login.emailPlaceholder")}
                   autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -76,11 +78,11 @@ export default function LoginPage() {
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{t("common.password")}</Label>
                 <Input
                   id="password"
                   type="password"
-                  placeholder="••••••••"
+                  placeholder={t("login.passwordPlaceholder")}
                   autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -90,7 +92,7 @@ export default function LoginPage() {
               </div>
               <Button type="submit" className="w-full" disabled={isPending}>
                 {isPending && <Spinner className="mr-1" />}
-                Sign in
+                {t("common.signIn")}
               </Button>
             </form>
         </div>

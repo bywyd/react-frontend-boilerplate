@@ -11,9 +11,12 @@ import {
 import { useLocation, Link } from "react-router";
 import { Fragment } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { useTranslation } from "react-i18next";
 
 export function AppHeader() {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   const segments = pathname
     .replace(/^\/intranet\/?/, "")
@@ -29,7 +32,7 @@ export function AppHeader() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink render={<Link to="/intranet" />}>Home</BreadcrumbLink>
+              <BreadcrumbLink render={<Link to="/intranet" />}>{t("common.home")}</BreadcrumbLink>
             </BreadcrumbItem>
 
             {segments.map((segment, i) => {
@@ -57,6 +60,7 @@ export function AppHeader() {
       </div>
 
       <div className="ml-auto flex items-center gap-1">
+        <LanguageSwitcher />
         <ThemeToggle />
       </div>
     </header>

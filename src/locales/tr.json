@@ -1,0 +1,65 @@
+{
+  "common": {
+    "home": "Başlangıç",
+    "email": "E-posta",
+    "password": "Şifre",
+    "signIn": "Giriş Yap",
+    "signOut": "Çıkış Yap",
+    "profile": "Profil",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "save": "Değişiklikleri Kaydet",
+    "toggleTheme": "Tema değiştir",
+    "selectLanguage": "Dil seçin"
+  },
+  "nav": {
+    "group": {
+      "overview": "Genel Bakış",
+      "manage": "Yönetim",
+      "system": "Sistem",
+      "components": "Bileşenler"
+    },
+    "dashboard": "Gösterge Paneli",
+    "analytics": "Analitik",
+    "users": "Kullanıcılar",
+    "allUsers": "Tüm Kullanıcılar",
+    "rolesPermissions": "Roller & İzinler",
+    "content": "İçerik",
+    "posts": "Gönderiler",
+    "media": "Medya",
+    "settings": "Ayarlar",
+    "profile": "Profil",
+    "mdiDemo": "MDI Demo",
+    "workspaceDemo": "Çalışma Alanı Demo"
+  },
+  "login": {
+    "welcomeBack": "Tekrar Hoş Geldiniz",
+    "subtitle": "Devam etmek için hesabınıza giriş yapın",
+    "emailPlaceholder": "siz@ornek.com",
+    "passwordPlaceholder": "••••••••"
+  },
+  "dashboard": {
+    "title": "Gösterge Paneli",
+    "welcome": "Hoş geldiniz, {{name}}.",
+    "totalBookings": "Toplam Rezervasyon",
+    "revenue": "Gelir",
+    "activeHotels": "Aktif Oteller",
+    "pendingOps": "Bekleyen İşlemler"
+  },
+  "profile": {
+    "title": "Profil",
+    "subtitle": "Hesap bilgilerinizi ve güvenlik ayarlarınızı yönetin.",
+    "accountInformation": "Hesap Bilgileri",
+    "fullName": "Ad Soyad",
+    "emailAddress": "E-posta Adresi",
+    "memberSince": "Üyelik Tarihi",
+    "accountStatus": "Hesap Durumu",
+    "changePassword": "Şifre Değiştir",
+    "currentPassword": "Mevcut Şifre",
+    "newPassword": "Yeni Şifre",
+    "confirmNewPassword": "Yeni Şifreyi Onayla",
+    "updatePassword": "Şifreyi Güncelle",
+    "passwordsDoNotMatch": "Yeni şifreler eşleşmiyor.",
+    "passwordChanged": "Şifre başarıyla değiştirildi."
+  }
+}

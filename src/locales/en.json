@@ -1,0 +1,65 @@
+{
+  "common": {
+    "home": "Home",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "profile": "Profile",
+    "active": "Active",
+    "inactive": "Inactive",
+    "save": "Save Changes",
+    "toggleTheme": "Toggle theme",
+    "selectLanguage": "Select language"
+  },
+  "nav": {
+    "group": {
+      "overview": "Overview",
+      "manage": "Manage",
+      "system": "System",
+      "components": "Components"
+    },
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "users": "Users",
+    "allUsers": "All Users",
+    "rolesPermissions": "Roles & Permissions",
+    "content": "Content",
+    "posts": "Posts",
+    "media": "Media",
+    "settings": "Settings",
+    "profile": "Profile",
+    "mdiDemo": "MDI Demo",
+    "workspaceDemo": "Workspace Demo"
+  },
+  "login": {
+    "welcomeBack": "Welcome back",
+    "subtitle": "Sign in to your account to continue",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {{name}}.",
+    "totalBookings": "Total Bookings",
+    "revenue": "Revenue",
+    "activeHotels": "Active Hotels",
+    "pendingOps": "Pending Ops"
+  },
+  "profile": {
+    "title": "Profile",
+    "subtitle": "Manage your account details and security settings.",
+    "accountInformation": "Account Information",
+    "fullName": "Full Name",
+    "emailAddress": "Email Address",
+    "memberSince": "Member Since",
+    "accountStatus": "Account Status",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "updatePassword": "Update Password",
+    "passwordsDoNotMatch": "New passwords do not match.",
+    "passwordChanged": "Password changed successfully."
+  }
+}

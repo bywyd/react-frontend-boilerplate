@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { toast } from "sonner"
 import { UserIcon } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -16,7 +17,8 @@ import { useAuthStore } from "@/stores/auth.store"
 import { useHead } from "@/hooks/use-head"
 
 export default function ProfilePage() {
-  useHead({ title: "Profile" })
+  const { t } = useTranslation()
+  useHead({ title: t("profile.title") })
 
   const user = useAuthStore((s) => s.user)
 
@@ -27,11 +29,11 @@ export default function ProfilePage() {
   function handlePasswordSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (newPassword !== confirmPassword) {
-      toast.error("New passwords do not match.")
+      toast.error(t("profile.passwordsDoNotMatch"))
       return
     }
     // TODO: wire up to change-password API
-    toast.success("Password changed successfully.")
+    toast.success(t("profile.passwordChanged"))
     setCurrentPassword("")
     setNewPassword("")
     setConfirmPassword("")
@@ -49,9 +51,9 @@ export default function ProfilePage() {
     <div className="space-y-6">
       {/* Page Heading */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
+        <h1 className="text-2xl font-bold tracking-tight">{t("profile.title")}</h1>
         <p className="text-sm text-muted-foreground">
-          Manage your account details and security settings.
+          {t("profile.subtitle")}
         </p>
       </div>
 
@@ -61,17 +63,17 @@ export default function ProfilePage() {
           <CardHeader>
             <div className="flex items-center gap-2">
               <UserIcon className="size-4 text-muted-foreground" />
-              <CardTitle>Account Information</CardTitle>
+              <CardTitle>{t("profile.accountInformation")}</CardTitle>
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-1.5">
-              <Label>Full Name</Label>
+              <Label>{t("profile.fullName")}</Label>
               <Input value={user?.name ?? ""} readOnly disabled />
             </div>
 
             <div className="space-y-1.5">
-              <Label>Email Address</Label>
+              <Label>{t("profile.emailAddress")}</Label>
               <Input
                 type="email"
                 value={user?.email ?? ""}
@@ -84,16 +86,16 @@ export default function ProfilePage() {
 
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-muted-foreground">Member Since</p>
+                <p className="text-muted-foreground">{t("profile.memberSince")}</p>
                 <p className="font-medium">{createdAt}</p>
               </div>
               <div>
-                <p className="text-muted-foreground">Account Status</p>
+                <p className="text-muted-foreground">{t("profile.accountStatus")}</p>
                 <p className="font-medium">
                   {user?.is_active ? (
-                    <span className="text-green-600 dark:text-green-400">Active</span>
+                    <span className="text-green-600 dark:text-green-400">{t("common.active")}</span>
                   ) : (
-                    <span className="text-destructive">Inactive</span>
+                    <span className="text-destructive">{t("common.inactive")}</span>
                   )}
                 </p>
               </div>
@@ -104,12 +106,12 @@ export default function ProfilePage() {
         {/* Change Password */}
         <Card>
           <CardHeader>
-            <CardTitle>Change Password</CardTitle>
+            <CardTitle>{t("profile.changePassword")}</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handlePasswordSubmit} className="space-y-4">
               <div className="space-y-1.5">
-                <Label htmlFor="current-password">Current Password</Label>
+                <Label htmlFor="current-password">{t("profile.currentPassword")}</Label>
                 <Input
                   id="current-password"
                   type="password"
@@ -122,7 +124,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="new-password">New Password</Label>
+                <Label htmlFor="new-password">{t("profile.newPassword")}</Label>
                 <Input
                   id="new-password"
                   type="password"
@@ -135,7 +137,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="confirm-password">Confirm New Password</Label>
+                <Label htmlFor="confirm-password">{t("profile.confirmNewPassword")}</Label>
                 <Input
                   id="confirm-password"
                   type="password"
@@ -148,7 +150,7 @@ export default function ProfilePage() {
               </div>
 
               <Button type="submit" className="w-full">
-                Update Password
+                {t("profile.updatePassword")}
               </Button>
             </form>
           </CardContent>

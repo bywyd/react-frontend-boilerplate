@@ -1,4 +1,5 @@
 import { useLocation, Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import {
   Sidebar,
   SidebarContent,
@@ -32,14 +33,15 @@ import type { SidebarNavItem } from "@/config/sidebar-nav";
 import AppLogoIcon from "@/components/app-logo-icon"
 
 function CollapsibleNavItem({ item, pathname }: { item: SidebarNavItem; pathname: string }) {
+  const { t } = useTranslation();
   return (
     <Collapsible defaultOpen={pathname.startsWith(item.url)} className="group/collapsible">
       <SidebarMenuItem>
         <CollapsibleTrigger
           render={
-            <SidebarMenuButton tooltip={item.title}>
+            <SidebarMenuButton tooltip={t(item.title)}>
               {item.icon && <item.icon className="size-4" />}
-              <span>{item.title}</span>
+              <span>{t(item.title)}</span>
               <ChevronRight className="ml-auto size-4 transition-transform duration-200 group-data-open/collapsible:rotate-90" />
             </SidebarMenuButton>
           }
@@ -52,7 +54,7 @@ function CollapsibleNavItem({ item, pathname }: { item: SidebarNavItem; pathname
                   render={<Link to={sub.url} />}
                   isActive={pathname === sub.url}
                 >
-                  {sub.title}
+                  {t(sub.title)}
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
             ))}
@@ -65,6 +67,7 @@ function CollapsibleNavItem({ item, pathname }: { item: SidebarNavItem; pathname
 
 export function AppSidebar() {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
   const user = useAuthStore((s) => s.user);
   const clearAuth = useAuthStore((s) => s.clearAuth);
 
@@ -103,7 +106,7 @@ export function AppSidebar() {
       <SidebarContent>
         {sidebarNav.map((group) => (
           <SidebarGroup key={group.label}>
-            <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
+            <SidebarGroupLabel>{t(group.label)}</SidebarGroupLabel>
             <SidebarMenu>
               {group.items.map((item) =>
                 item.items && item.items.length > 0 ? (
@@ -113,10 +116,10 @@ export function AppSidebar() {
                     <SidebarMenuButton
                       render={<Link to={item.url} />}
                       isActive={pathname === item.url}
-                      tooltip={item.title}
+                      tooltip={t(item.title)}
                     >
                       {item.icon && <item.icon className="size-4" />}
-                      <span>{item.title}</span>
+                      <span>{t(item.title)}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 )
@@ -173,15 +176,15 @@ export function AppSidebar() {
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                   <Link to="/profile">
-                    <DropdownMenuItem onClick={() => clearAuth()}>
+                    <DropdownMenuItem>
                       <User2 className="mr-2 size-4" />
-                      Profile
+                      {t("common.profile")}
                     </DropdownMenuItem>
                   </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => clearAuth()} className="text-destructive focus:text-destructive">
                   <LogOut className="mr-2 size-4" />
-                  Sign out
+                  {t("common.signOut")}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

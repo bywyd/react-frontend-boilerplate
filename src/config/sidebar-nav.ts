@@ -24,47 +24,47 @@ export interface SidebarNavGroup {
 
 export const sidebarNav: SidebarNavGroup[] = [
   {
-    label: "Overview",
+    label: "nav.group.overview",
     items: [
-      { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard as LucideIcon },
-      { title: "Analytics", url: "/analytics", icon: BarChart2 as LucideIcon },
+      { title: "nav.dashboard", url: "/dashboard", icon: LayoutDashboard as LucideIcon },
+      { title: "nav.analytics", url: "/analytics", icon: BarChart2 as LucideIcon },
     ],
   },
   {
-    label: "Manage",
+    label: "nav.group.manage",
     items: [
       {
-        title: "Users",
+        title: "nav.users",
         url: "/users",
         icon: Users as LucideIcon,
         items: [
-          { title: "All Users", url: "/users" },
-          { title: "Roles & Permissions", url: "/users/roles" },
+          { title: "nav.allUsers", url: "/users" },
+          { title: "nav.rolesPermissions", url: "/users/roles" },
         ],
       },
       {
-        title: "Content",
+        title: "nav.content",
         url: "/content",
         icon: FileText as LucideIcon,
         items: [
-          { title: "Posts", url: "/content/posts" },
-          { title: "Media", url: "/content/media" },
+          { title: "nav.posts", url: "/content/posts" },
+          { title: "nav.media", url: "/content/media" },
         ],
       },
     ],
   },
   {
-    label: "System",
+    label: "nav.group.system",
     items: [
-      { title: "Settings", url: "/settings", icon: Settings2 as LucideIcon },
-      { title: "Profile", url: "/profile", icon: Users as LucideIcon },
+      { title: "nav.settings", url: "/settings", icon: Settings2 as LucideIcon },
+      { title: "nav.profile", url: "/profile", icon: Users as LucideIcon },
     ],
   },
   {
-    label: "Components",
+    label: "nav.group.components",
     items: [
-      { title: "MDI Demo", url: "/mdi-demo", icon: AppWindowMac as LucideIcon },
-      { title: "Workspace Demo", url: "/workspace-demo", icon: PanelsTopLeft as LucideIcon },
+      { title: "nav.mdiDemo", url: "/mdi-demo", icon: AppWindowMac as LucideIcon },
+      { title: "nav.workspaceDemo", url: "/workspace-demo", icon: PanelsTopLeft as LucideIcon },
     ],
   },
 ];
